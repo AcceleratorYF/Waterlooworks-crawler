@@ -45,6 +45,17 @@ def enter():
         return 'Timeout, {}'.format(e.__cause__)
 
 
+def create_db():
+    insert = "CREATE TABLE `Store`.`waterlooworkss` (`id` INT NOT NULL,`title` VARCHAR(100)" \
+        " NULL,`city` VARCHAR(45) NULL,`country` VARCHAR(45) NULL,`open` INT NULL," \
+            "`summary` TEXT NULL,`responsibility` TEXT NULL,`required` TEXT NULL,`transhousing`" \
+                " TEXT NULL,`benefit` TEXT NULL,`duration` VARCHAR(45) NULL,`special` TEXT NULL,`document`" \
+                    " VARCHAR(145) NULL,`additional` TEXT NULL,PRIMARY KEY (`id`),UNIQUE INDEX `id_UNIQUE` " \
+                        "(`id` ASC) VISIBLE);"
+    sql.execute(insert)
+    db.commit()
+
+
 def to_database(job):
     insert = "INSERT INTO waterlooworks (id,title,city,country,open,summary,responsibility," \
              "required,transhousing,benefit,duration,special,document,additional) " \
@@ -133,6 +144,7 @@ def one_list():
 
 
 def main():
+    create_db()
     enter()
     soup = BeautifulSoup(browser.page_source, features="html.parser")
     next_page_button = len(soup.find(id="postingsTablePlaceholder").find(class_="orbis-posting-actions")
