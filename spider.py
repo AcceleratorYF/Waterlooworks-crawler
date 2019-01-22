@@ -46,7 +46,7 @@ def enter():
 
 
 def create_db():
-    insert = "CREATE TABLE `Store`.`waterlooworkss` (`id` INT NOT NULL,`title` VARCHAR(100)" \
+    insert = "CREATE TABLE `Store`.`waterlooworks` (`id` INT NOT NULL,`title` VARCHAR(100)" \
         " NULL,`city` VARCHAR(45) NULL,`country` VARCHAR(45) NULL,`open` INT NULL," \
             "`summary` TEXT NULL,`responsibility` TEXT NULL,`required` TEXT NULL,`transhousing`" \
                 " TEXT NULL,`benefit` TEXT NULL,`duration` VARCHAR(45) NULL,`special` TEXT NULL,`document`" \
